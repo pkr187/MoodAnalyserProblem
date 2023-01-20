@@ -4,15 +4,14 @@ using System;
 namespace MoodAnalyserTest
 {
     [TestClass]
-    public class MoodAnalyser
+    public class MoodAnalyserTest
     {
+        //UC3
+        //TC 3.2
         [TestMethod]
-        //UC2
-        // TC 2.1: Given null mood Should Return HAPPY
-        [TestMethod]
-        public void GivenNullMessage_WhenAnalyse_ShouldReturnHappy()
+        public void GivenEmptyMessage_WhenAnalyse_ShouldReturnHappy()
         {
-            string message = null;
+            string message = string.Empty;
             MoodAnalyser moodAnalyzer = new MoodAnalyser(message);
             try
             {
@@ -20,8 +19,9 @@ namespace MoodAnalyserTest
             }
             catch (MoodAnalyserException ex)
             {
-                Assert.AreEqual(ex.Message, "Message is Null");
+                Assert.AreEqual(ex.Message, "Message is Empty");
             }
         }
     }
 }
+
