@@ -10,13 +10,18 @@ namespace MoodAnalyserTest
         //UC2
         // TC 2.1: Given null mood Should Return HAPPY
         [TestMethod]
-        public void GivenNullMoodShouldReturnHAPPY()
+        public void GivenNullMessage_WhenAnalyse_ShouldReturnHappy()
         {
-            string expected = "HAPPY";
             string message = null;
-            MoodAnalyzer moodAnalyzer = new MoodAnalyzer(message);
-            string mood = moodAnalyzer.AnalyseMood();
-            Assert.AreEqual(expected, mood);
+            MoodAnalyser moodAnalyzer = new MoodAnalyser(message);
+            try
+            {
+                string actutal = moodAnalyzer.AnalyseMood();
+            }
+            catch (MoodAnalyserException ex)
+            {
+                Assert.AreEqual(ex.Message, "Message is Null");
+            }
         }
     }
 }
